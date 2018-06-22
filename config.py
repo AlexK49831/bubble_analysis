@@ -13,7 +13,7 @@ import numpy as np
 
 
 # Change these for your paths
-IMAGE_BASE_DIR = '/Users/kevin/Desktop/Research/Vucetic/Bubble images/'
+IMAGE_BASE_DIR = '/media/tug74186/KevSSDrive/Bubble images/'
 
 
 
