@@ -2125,7 +2125,7 @@ class MaskRCNN():
         """Downloads ImageNet trained weights from Keras.
         Returns path to weights file.
         """
-        return '/Users/kevin/Downloads/resnet50_weights_tf_dim_ordering_tf_kernels_notop.h5'
+        return '/home/tug74186/Downloads/resnet50_weights_tf_dim_ordering_tf_kernels_notop.h5'
         from keras.utils.data_utils import get_file
         TF_WEIGHTS_PATH_NO_TOP = 'https://github.com/fchollet/deep-learning-models/'\
                                  'releases/download/v0.2/'\
