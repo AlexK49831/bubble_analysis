@@ -32,7 +32,7 @@ class BubbleDataset(Dataset):
             image_path = annotations['filename']
             image = skimage.io.imread(image_path)
             height, width = image.shape[:2]
-            polygons = [r for r in annotations['regions'].values()]
+            polygons = [r['shape_attributes'] for r in annotations['regions'].values()]
             
             self.add_image(
                 "bubble",
