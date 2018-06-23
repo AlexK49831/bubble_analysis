@@ -65,7 +65,6 @@ def annotate_xls(path):
 
 def annotate_csv(path):
     ret_dict = {}
-    bubble_number = "0"
     df = pd.read_csv(os.path.join(base_dir, path))
     for bubble_number in range(len(df)):
         # Equation of a circle is (x - h)^2 + (y - k)^2 = r^2
@@ -108,7 +107,6 @@ def annotate_csv(path):
     new_ret = dict(regions=ret_dict)
     new_ret.update(dict(filename=path[:-4]+'.bmp'))
     return new_ret
-
 
 
 
