@@ -24,7 +24,7 @@ class BubbleDataset(Dataset):
     def load_bubble(self, dataset_dir):
         self.add_class("bubble", 1, "bubble")
         dir_path = os.path.join(IMAGE_BASE_DIR, dataset_dir)
-        paths = [f for f in os.listdir(dir_path) if os.path.isfile(os.path.join(dir_path, f)) and '.csv' in f]
+        paths = [f for f in os.listdir(dir_path) if os.path.isfile(os.path.join(dir_path, f)) and '.csv' in f or '.xls' in f]
         for path in paths:
             annotations = annotate_image(os.path.join(dataset_dir, path))
             image_path = annotations['filename']

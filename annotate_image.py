@@ -16,8 +16,7 @@ def annotate_image(path):
 
 def annotate_xls(path):
     ret_dict = {}
-    bubble_number = "0"
-    df = pd.read_excel(os.path.join(base_dir, path), 'Bubble data')
+    df = pd.read_excel(os.path.join(base_dir, path), 'Bubble Data')
     df = df[1:]
     df.reset_index(inplace=True)
     df.rename(columns={'Center Coord':'X', 'Center Coord.1':'Y', 'Bubble Radius':'Radius'}, inplace=True)
@@ -56,7 +55,7 @@ def annotate_xls(path):
             pos, neg = quadratic_solver(1, -1*(2*k), x**2 - 2*h*x + h**2 + k**2 - r**2)            
             y_vals[index] = pos
             y_vals[index+1] = pos
-            y_vals[index+2] = neg  
+            y_vals[index+2] = neg
             y_vals[index+3] = neg  
         ret_dict.update({str(bubble_number) : dict(all_points_x=x_vals.tolist(), all_points_y=y_vals.tolist(), name='polygon')})
     new_ret = dict(regions=ret_dict)
