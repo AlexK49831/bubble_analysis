@@ -36,7 +36,7 @@ class BubbleDataset(Dataset):
             
             self.add_image(
                 "bubble",
-                image_id=path,
+                image_id=annotations['filename'],
                 path=image_path,
                 width=width,
                 height=height,
@@ -47,7 +47,7 @@ class BubbleDataset(Dataset):
         mask = np.zeros([info['height'], info['width'], len(info['polygons'])], dtype=np.uint8)
         with open('/home/tug74186/Desktop/polygons.txt', 'w') as f:
             f.write(str(info['polygons']))
-        for i, p in enumerate(info['polygons']):
+        for i, p in enumerate(info['polygons'][:-1]):
             rr, cc = skimage.draw.polygon(p['all_points_y'], p['all_points_x'])
             mask[rr, cc, i] = 1  
         return mask.astype(np.bool), np.ones([mask.shape[-1]], dtype=np.int32)
