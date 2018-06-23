@@ -103,7 +103,7 @@ def annotate_csv(path):
             y_vals[index+1] = pos
             y_vals[index+2] = neg  
             y_vals[index+3] = neg  
-        ret_dict.update({str(bubble_number) : dict(all_points_x=x_vals.tolist(), all_points_y=y_vals.tolist(), name='polygon')})
+        ret_dict.update({str(bubble_number) : dict(shape_attributes=dict(all_points_x=x_vals.tolist(), all_points_y=y_vals.tolist(), name='polygon'))})
     new_ret = dict(regions=ret_dict)
     new_ret.update(dict(filename=path[:-4]+'.bmp'))
     return new_ret
