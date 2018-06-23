@@ -47,7 +47,7 @@ class BubbleDataset(Dataset):
         mask = np.zeros([info['height'], info['width'], len(info['polygons'])], dtype=np.uint8)
         with open('/home/tug74186/Desktop/polygons.txt', 'w') as f:
             f.write(str(info['polygons']))
-        for i, p in enumerate(info['polygons'][:-1]):
+        for i, p in enumerate(info['polygons'][:-1]):# I was getting an array index out of bounds error with i being one too big, so I'm trying to go to the second to last instead of all the way for i.
             rr, cc = skimage.draw.polygon(p['all_points_y'], p['all_points_x'])
             mask[rr, cc, i] = 1  
         return mask.astype(np.bool), np.ones([mask.shape[-1]], dtype=np.int32)
