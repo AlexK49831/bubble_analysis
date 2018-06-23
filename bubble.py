@@ -47,6 +47,7 @@ class BubbleDataset(Dataset):
         mask = np.zeros([info['height'], info['width'], len(info['polygons'])], dtype=np.uint8)
         for i, p in enumerate(info['polygons']):
             rr, cc = skimage.draw.polygon(p['all_points_y'], p['all_points_x'])
+            print('I IS EQUAL TO {}'.format(i))
             mask[rr, cc, i] = 1  
         return mask.astype(np.bool), np.ones([mask.shape[-1]], dtype=np.int32)
 
