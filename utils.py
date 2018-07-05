@@ -375,7 +375,8 @@ class Dataset(object):
         #if image.shape[-1] == 4:
         #    image = image[..., :3]
         #return image
-        return skimage.io.imread(self.image_info[image_id]['path'])
+        image =  skimage.io.imread(self.image_info[image_id]['path'])
+        return skimage.color.rgb2grey(image)
         
     def load_mask(self, image_id):
         """Load instance masks for the given image.
