@@ -70,7 +70,7 @@ def train(model):
     model.train(dataset_train, dataset_val,
                 learning_rate=config.LEARNING_RATE,
                 epochs=30,
-                layers='all')
+                layers='heads')
   
 
 
@@ -106,6 +106,6 @@ if __name__ == '__main__':
         weights_path = args.weights
 
     print("Loading weights ", weights_path)
-    model.load_weights(weights_path, by_name=True, exclude=['input_image'])
+    model.load_weights(weights_path, by_name=True)
 
     train(model)

@@ -365,18 +365,16 @@ class Dataset(object):
         """Load the specified image and return a [H,W,3] Numpy array.
         """
         # Load image
-        #image = skimage.io.imread(self.image_info[image_id]['path'])
+        image = skimage.io.imread(self.image_info[image_id]['path'])
         # If grayscale. Convert to RGB for consistency.
 
-        # ****** KEVIN EDIT FOR GRAYSCALE
-        # if image.ndim != 3:
-        #    image = skimage.color.gray2rgb(image)
+
+        if image.ndim != 3:
+            image = skimage.color.gray2rgb(image)
         # If has an alpha channel, remove it for consistency
-        #if image.shape[-1] == 4:
-        #    image = image[..., :3]
-        #return image
-        image =  skimage.io.imread(self.image_info[image_id]['path'])
-        return skimage.color.rgb2grey(image)
+        if image.shape[-1] == 4:
+            image = image[..., :3]
+        return image
         
     def load_mask(self, image_id):
         """Load instance masks for the given image.
