@@ -30,7 +30,7 @@ class BubbleDataset(Dataset):
         for path in paths:
             annotations = annotate_image(os.path.join(dataset_dir, path))
             image_path = annotations['filename']
-            image = skimage.io.imread(image_path)
+            image = skimage.color.gray2rgb(skimage.io.imread(image_path))
             height, width = image.shape[:2]
             polygons = [r['shape_attributes'] for r in annotations['regions'].values()]
             
