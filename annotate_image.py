@@ -43,11 +43,11 @@ def annotate_xls(path):
         y_vals[3] = k - r
         # Each iteration of the loop takes one random_x_val, so we skip every 4 to accommodate.
         for i in range(4, len(x_vals), 4):
-            x_vals[i] = random_x_vals[math.floor(i/4)]
-            if random_x_vals[math.floor(i/4)] > h:
-                x_vals[i+1] = random_x_vals[math.floor(i/4)] - 2 * (random_x_vals[math.floor(i/4)] - h)
+            x_vals[i] = random_x_vals[int(math.floor(i/4))]
+            if random_x_vals[int(math.floor(i/4))] > h:
+                x_vals[i+1] = random_x_vals[int(math.floor(i/4))] - 2 * (random_x_vals[int(math.floor(i/4))] - h)
             else:
-                x_vals[i+1] = random_x_vals[math.floor(i/4)] + 2 * (h - random_x_vals[math.floor(i/4)])
+                x_vals[i+1] = random_x_vals[int(math.floor(i/4))] + 2 * (h - random_x_vals[int(math.floor(i/4))])
             x_vals[i+2] = x_vals[i]
             x_vals[i+3] = x_vals[i+1]
         for index in range(4, len(x_vals), 4):
@@ -89,11 +89,11 @@ def annotate_csv(path):
         y_vals[3] = k - r
         # Each iteration of the loop takes one random_x_val, so we skip every 4 to accommodate.
         for i in range(4, len(x_vals), 4):
-            x_vals[i] = random_x_vals[math.floor(i/4)]
-            if random_x_vals[math.floor(i/4)] > h:
-                x_vals[i+1] = random_x_vals[math.floor(i/4)] - 2 * (random_x_vals[math.floor(i/4)] - h)
+            x_vals[i] = random_x_vals[int(math.floor(i/4))]
+            if random_x_vals[int(math.floor(i/4))] > h:
+                x_vals[i+1] = random_x_vals[int(math.floor(i/4))] - 2 * (random_x_vals[int(math.floor(i/4))] - h)
             else:
-                x_vals[i+1] = random_x_vals[math.floor(i/4)] + 2 * (h - random_x_vals[math.floor(i/4)])
+                x_vals[i+1] = random_x_vals[int(math.floor(i/4))] + 2 * (h - random_x_vals[int(math.floor(i/4))])
             x_vals[i+2] = x_vals[i]
             x_vals[i+3] = x_vals[i+1]
         for index in range(4, len(x_vals), 4):

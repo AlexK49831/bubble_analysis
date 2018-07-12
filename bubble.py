@@ -46,7 +46,7 @@ class BubbleDataset(Dataset):
         info = self.image_info[image_id]
         mask = np.zeros([info['height'], info['width'], len(info['polygons'])], dtype=np.uint8)
         for i, p in enumerate(info['polygons']):
-            rr, cc = skimage.draw.polygon(p['all_points_y'], p['all_points_x'], shape=(1040, 1392))
+            rr, cc = skimage.draw.polygon(p['all_points_y'], p['all_points_x'], shape=mask.shape)
             mask[rr, cc, i] = 1  
         return mask.astype(np.bool), np.ones([mask.shape[-1]], dtype=np.int32)
 
