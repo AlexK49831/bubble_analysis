@@ -7,14 +7,14 @@ Created on Tue Jul 10 11:30:01 2018
 """
 
 import sys
-sys.path.append('/Users/kevin/Desktop/Research/Vucetic/bubble_analysis')
+sys.path.append('/home/tug74186/Development/bubble_analysis')
 import os
 import pandas as pd
 from skimage.io import imsave, imread
 from skimage.draw import circle, circle_perimeter
 import numpy as np
 
-BASE_DIR = '/Users/kevin/Desktop/Research/Vucetic/Bubble images/Dataset_1'
+BASE_DIR = '/mnt/tmp/Bubble images/Dataset_1'
 extensions = ['test#2 20ppm MIBC/Result # 2 20ppm', 'test#3 20ppm MIBC/Result # 3 20ppm', 'test#4 20ppm MIBC/Result test # 4 20ppm', 'test#6 20ppm MIBC/Result test # 6 20ppm', 'test#7 20ppm MIBC/Result test # 7 20ppm', 'test#8 20ppm MIBC/Result test # 8 20ppm', 'test#9 20ppm MIBC/Result test # 9 20ppm', 'test#10 20ppm MIBC/Result test # 10 20ppm']
 
 image_dirs = [os.path.join(BASE_DIR, d) for d in extensions]
@@ -37,8 +37,9 @@ for image_path in image_paths:
     for row in range(len(x)):
         rr, cc = circle(y[row], x[row], radiuses[row],      shape=image.shape[:2])
         mask[rr, cc] = 1000
+    imsave(image_path[:-3] + 'png', mask, as_gray=True)
     #rr, cc = circle_perimeter(y[row], x[row], radiuses[row], shape=image.shape[:2])
     #mask[rr, cc] = 300
-    imsave(image_path[:-4]+'_with_perimeters.png', mask, as_gray=True)
+    #imsave(image_path[:-4]+'_with_perimeters.png', mask, as_gray=True)
 
                       
